@@ -1,6 +1,6 @@
-diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.c openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/core/ngx_connection.c
+diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.c openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.c
 --- openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.c	2017-10-26 01:42:53.000000000 -0400
-+++ openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/core/ngx_connection.c	2019-04-03 14:59:04.000000000 -0400
++++ openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.c	2019-04-03 14:59:04.000000000 -0400
 @@ -8,6 +8,7 @@
  #include <ngx_config.h>
  #include <ngx_core.h>
@@ -90,9 +90,9 @@ diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.c openr
                  err = ngx_socket_errno;
  
                  if (err != NGX_EADDRINUSE || !ngx_test_config) {
-diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.c.orig openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/core/ngx_connection.c.orig
+diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.c.orig openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.c.orig
 --- openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.c.orig	1969-12-31 19:00:00.000000000 -0500
-+++ openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/core/ngx_connection.c.orig	2017-10-26 01:42:53.000000000 -0400
++++ openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.c.orig	2017-10-26 01:42:53.000000000 -0400
 @@ -0,0 +1,1451 @@
 +
 +/*
@@ -1545,9 +1545,9 @@ diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.c.orig 
 +
 +    return NGX_ERROR;
 +}
-diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.h openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/core/ngx_connection.h
+diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.h openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.h
 --- openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.h	2017-10-26 01:42:53.000000000 -0400
-+++ openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/core/ngx_connection.h	2019-04-03 14:59:15.000000000 -0400
++++ openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.h	2019-04-03 14:59:15.000000000 -0400
 @@ -56,6 +56,7 @@
      unsigned            open:1;
      unsigned            remain:1;
@@ -1556,9 +1556,9 @@ diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.h openr
  
      unsigned            bound:1;       /* already bound */
      unsigned            inherited:1;   /* inherited from previous process */
-diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.h.orig openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/core/ngx_connection.h.orig
+diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.h.orig openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.h.orig
 --- openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.h.orig	1969-12-31 19:00:00.000000000 -0500
-+++ openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/core/ngx_connection.h.orig	2017-10-26 01:42:53.000000000 -0400
++++ openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.h.orig	2017-10-26 01:42:53.000000000 -0400
 @@ -0,0 +1,225 @@
 +
 +/*
@@ -1785,9 +1785,9 @@ diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/core/ngx_connection.h.orig 
 +void ngx_reusable_connection(ngx_connection_t *c, ngx_uint_t reusable);
 +
 +#endif /* _NGX_CONNECTION_H_INCLUDED_ */
-diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http.c openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/http/ngx_http.c
+diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http.c openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http.c
 --- openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http.c	2018-05-14 16:24:38.000000000 -0400
-+++ openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/http/ngx_http.c	2019-04-03 14:59:24.000000000 -0400
++++ openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http.c	2019-04-03 14:59:24.000000000 -0400
 @@ -1776,6 +1776,8 @@
      ls->reuseport = addr->opt.reuseport;
  #endif
@@ -1797,9 +1797,9 @@ diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http.c openresty-1
      return ls;
  }
  
-diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http.c.orig openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/http/ngx_http.c.orig
+diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http.c.orig openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http.c.orig
 --- openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http.c.orig	1969-12-31 19:00:00.000000000 -0500
-+++ openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/http/ngx_http.c.orig	2018-05-14 16:24:38.000000000 -0400
++++ openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http.c.orig	2018-05-14 16:24:38.000000000 -0400
 @@ -0,0 +1,2082 @@
 +
 +/*
@@ -3883,9 +3883,9 @@ diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http.c.orig openre
 +
 +    return NGX_OK;
 +}
-diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.c openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/http/ngx_http_core_module.c
+diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.c openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.c
 --- openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.c	2018-05-14 16:24:38.000000000 -0400
-+++ openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/http/ngx_http_core_module.c	2019-04-03 14:59:32.000000000 -0400
++++ openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.c	2019-04-03 14:59:32.000000000 -0400
 @@ -3793,6 +3793,11 @@
              continue;
          }
@@ -3898,9 +3898,9 @@ diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.c
  #if (NGX_HAVE_SETFIB)
          if (ngx_strncmp(value[n].data, "setfib=", 7) == 0) {
              lsopt.setfib = ngx_atoi(value[n].data + 7, value[n].len - 7);
-diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.c.orig openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/http/ngx_http_core_module.c.orig
+diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.c.orig openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.c.orig
 --- openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.c.orig	2018-05-14 16:24:38.000000000 -0400
-+++ openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/http/ngx_http_core_module.c.orig	2018-05-14 16:24:38.000000000 -0400
++++ openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.c.orig	2018-05-14 16:24:38.000000000 -0400
 @@ -8,6 +8,7 @@
  #include <ngx_config.h>
  #include <ngx_core.h>
@@ -3927,9 +3927,9 @@ diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.c
      return ngx_http_post_request(sr, NULL);
  }
  
-diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h
+diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h
 --- openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h	2017-10-26 01:42:53.000000000 -0400
-+++ openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h	2019-04-03 15:05:57.000000000 -0400
++++ openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h	2019-04-03 15:05:57.000000000 -0400
 @@ -72,6 +72,7 @@
      unsigned                   default_server:1;
      unsigned                   bind:1;
@@ -3938,9 +3938,9 @@ diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h
      unsigned                   ssl:1;
      unsigned                   http2:1;
  #if (NGX_HAVE_INET6)
-diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h.orig openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h.orig
+diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h.orig openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h.orig
 --- openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h.orig	1969-12-31 19:00:00.000000000 -0500
-+++ openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h.orig	2017-10-26 01:42:53.000000000 -0400
++++ openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h.orig	2017-10-26 01:42:53.000000000 -0400
 @@ -0,0 +1,574 @@
 +
 +/*
@@ -4516,9 +4516,9 @@ diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h
 +
 +
 +#endif /* _NGX_HTTP_CORE_H_INCLUDED_ */
-diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h.rej openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h.rej
+diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h.rej openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h.rej
 --- openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h.rej	1969-12-31 19:00:00.000000000 -0500
-+++ openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h.rej	2019-04-03 14:59:43.000000000 -0400
++++ openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h.rej	2019-04-03 14:59:43.000000000 -0400
 @@ -0,0 +1,16 @@
 +***************
 +*** 72,77 ****
@@ -4536,9 +4536,9 @@ diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/http/ngx_http_core_module.h
 +  #if (NGX_HTTP_SSL)
 +      unsigned                   ssl:1;
 +  #endif
-diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process.c openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/os/unix/ngx_process.c
+diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process.c openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process.c
 --- openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process.c	2017-10-26 01:42:53.000000000 -0400
-+++ openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/os/unix/ngx_process.c	2019-04-03 14:59:49.000000000 -0400
++++ openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process.c	2019-04-03 14:59:49.000000000 -0400
 @@ -34,6 +34,7 @@
  ngx_socket_t     ngx_channel;
  ngx_int_t        ngx_last_process;
@@ -4547,9 +4547,9 @@ diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process.c openr
  
  
  ngx_signal_t  signals[] = {
-diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process.h openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/os/unix/ngx_process.h
+diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process.h openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process.h
 --- openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process.h	2017-10-26 01:42:53.000000000 -0400
-+++ openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/os/unix/ngx_process.h	2019-04-03 14:59:55.000000000 -0400
++++ openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process.h	2019-04-03 14:59:55.000000000 -0400
 @@ -83,6 +83,7 @@
  extern ngx_int_t      ngx_process_slot;
  extern ngx_int_t      ngx_last_process;
@@ -4558,9 +4558,9 @@ diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process.h openr
  
  
  #endif /* _NGX_PROCESS_H_INCLUDED_ */
-diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c
+diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c
 --- openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c	2018-05-14 16:24:38.000000000 -0400
-+++ openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c	2019-04-03 15:08:25.000000000 -0400
++++ openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c	2019-04-03 15:08:25.000000000 -0400
 @@ -802,6 +802,8 @@
      ngx_process = NGX_PROCESS_WORKER;
      ngx_worker = worker;
@@ -4582,9 +4582,9 @@ diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c
      for (i = 0; cycle->modules[i]; i++) {
          if (cycle->modules[i]->init_process) {
              if (cycle->modules[i]->init_process(cycle) == NGX_ERROR) {
-diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c.orig openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c.orig
+diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c.orig openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c.orig
 --- openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c.orig	2018-05-14 16:24:38.000000000 -0400
-+++ openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c.orig	2018-05-14 16:24:38.000000000 -0400
++++ openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c.orig	2018-05-14 16:24:38.000000000 -0400
 @@ -783,6 +783,11 @@
      ngx_exit_cycle.files_n = ngx_cycle->files_n;
      ngx_cycle = &ngx_exit_cycle;
@@ -4606,9 +4606,9 @@ diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c
          }
  
          if (ngx_reopen) {
-diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c.rej openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c.rej
+diff -ruN openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c.rej openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c.rej
 --- openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c.rej	1969-12-31 19:00:00.000000000 -0500
-+++ openresty-1.13.6.2-patched/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c.rej	2019-04-03 15:00:03.000000000 -0400
++++ openresty-1.13.6.2/bundle/nginx-1.13.6/src/os/unix/ngx_process_cycle.c.rej	2019-04-03 15:00:03.000000000 -0400
 @@ -0,0 +1,21 @@
 +***************
 +*** 1035,1040 ****
